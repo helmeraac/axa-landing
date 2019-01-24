@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Cotizador</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"> 
+  <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+</head>
+<body>
+  <img src="/images/banner.png" style="width: 100%;" />
+  <div class="container">
+    <div class="row" style="margin-top:32px;">
+      <div class="col-md-7" style="background-color: #f2f2f2; padding: 32px;">
+        <form id="planForm">
+          <div class="row">
+            <div class="form-group col-md-6">
+              <label for="first_name">Nombre:</label>
+              <input type="text" class="form-control" id="first_name" name="first_name" placeholder="Nombre" required>
+            </div>
+            <div class="form-group col-md-6">
+              <label for="last_name">Apellido:</label>
+              <input type="text" class="form-control" id="last_name" name="last_name" placeholder="Apellido" required>
+            </div>
+          </div>
+          <div class="row">
+            <div class="form-group col-md-6">
+              <label for="age">Edad:</label>
+              <input type="number" class="form-control" id="age" name="age" placeholder="Edad" required>
+            </div>
+          </div>
+          <div class="row">
+            <div class="form-group col-md-6">
+              <label for="gender">Género:</label>
+              <select class="form-control" id="gender" name="gender" required>
+                <option value="Male">Hombre</option>
+                <option value="Female">Mujer</option>
+              </select>
+            </div>
+          </div>
+          <div class="row">
+            <div class="form-group col-md-6">
+              <label for="email">Email:</label>
+              <input type="email" class="form-control" id="email" name="email" placeholder="Email" required>
+            </div>
+          </div>
+          <div class="row">
+            <div class="form-group col-md-6">
+              <label for="phone">Celular:</label>
+              <input type="text" class="form-control" id="phone" name="phone" placeholder="Celular" required>
+            </div>
+          </div>
+          <div class="row">
+            <div class="form-group col-md-12">
+              <label for="plan">Realizaremos una cotización inicial y te contactaremos para aclarar dudas sobre los diferentes planes:</label>
+              <div class="checkbox">
+                <label><input type="checkbox" name="plans" value="18">Emermédica</label>
+              </div>
+              <div class="checkbox">
+                <label><input type="checkbox" name="plans" value="17">Salud Ideal</label>
+              </div>
+              <div class="checkbox">
+                <label><input type="checkbox" name="plans" value="26">Plan Ambulatorio</label>
+              </div>
+              <div class="checkbox">
+                <label><input type="checkbox" name="plans" value="13">Medicina Prepagada - Plan Alterno Plus</label>
+              </div>
+              <div class="checkbox">
+                <label><input type="checkbox" name="plans" value="11">Medicina Prepagada - Plan Original Plus</label>
+              </div>
+              <div class="checkbox">
+                <label><input type="checkbox" name="plans" value="15">Medicina Prepagada - Plan Fesalud Plus</label>
+              </div>
+            </div>
+          </div>
+
+          <button type="submit" class="btn btn-success">Enviar</button>
+        </form>
+      </div>
+      <div class="col-md-4 col-md-offset-1" style="background-color: #f2f2f2; padding:32px; ">
+        <img src="/images/contact.png" style="width: 100%;" />
+      </div>
+    </div>
+  </div>
+  <!-- Latest compiled and minified JavaScript -->
+  <script>
+    $("#planForm").submit((e) => {
+      e.preventDefault();
+      $.post('http://localhost:3000', $('#planForm').serialize())
+      .done(() => {
+        Swal.fire({
+          type: 'success',
+          title: '',
+          text: 'Tus datos fueron enviados correctamente',
+        })
+      })
+      .fail(() => {
+        Swal.fire({
+          type: 'error',
+          title: 'Oops...',
+          text: 'Ocurrió un error enviando tus datos, verifica los datos ingresados',
+        })
+      })
+    });
+  </script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@8.0.1/dist/sweetalert2.all.min.js"></script>
+</body>
+</html>
