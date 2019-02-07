@@ -84,7 +84,7 @@
   <script>
     $("#planForm").submit((e) => {
       e.preventDefault();
-      $.post('http://localhost:3000', $('#planForm').serialize())
+      $.post('https://cotizador.estoy-seguro.com', $('#planForm').serialize())
       .done(() => {
         Swal.fire({
           type: 'success',
