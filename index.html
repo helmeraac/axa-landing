@@ -6,6 +6,31 @@
   <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
 </head>
 <body>
+    <nav class="navbar" style="background: white; border-color: white;">
+        <div class="container-fluid">
+          <!-- Brand and toggle get grouped for better mobile display -->
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+          </div>
+      
+          <!-- Collect the nav links, forms, and other content for toggling -->
+          <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav" style="color: #333; float: none; margin: 5px auto; display: table; table-layout: fixed;">
+              <li><a href="https://estoy-seguro.com" style="color: #333; font-size:10px; letter-spacing: 2px;">ESTOY SEGURO</a></li>
+              <li><a href="https://estoy-seguro.com/emermedica/" style="color: #333; font-size:10px; letter-spacing: 2px;">EMERMÉDICA</a></li>
+              <li><a href="https://estoy-seguro.com/home/poliza-salud-ideal/" style="color: #333; font-size:10px; letter-spacing: 2px;">SALUD IDEAL</a></li>
+              <li><a href="https://estoy-seguro.com/complementario/" style="color: #333; font-size:10px; letter-spacing: 2px;">PLAN COMPLEMENTARIO</a></li>
+              <li><a href="https://estoy-seguro.com/medicina-prepagada/" style="color: #333; font-size:10px; letter-spacing: 2px;">MEDICINA PREPAGADA</a></li>
+              <li><a href="#" style="color: #333; font-size:12px; letter-spacing: 2px;"><b>COTIZA AQUÍ!</b></a></li>
+            </ul>
+          </div><!-- /.navbar-collapse -->
+        </div><!-- /.container-fluid -->
+      </nav>
   <img src="/images/banner.png" style="width: 100%;" />
   <div class="container">
     <div class="row" style="margin-top:32px;">
@@ -14,23 +39,23 @@
           <div class="row">
             <div class="form-group col-md-6">
               <label for="first_name">Nombre:</label>
-              <input type="text" class="form-control" id="first_name" name="first_name" placeholder="Nombre" required>
+              <input type="text" class="form-control" style="border: none; border-radius: 0px;" id="first_name" name="first_name" placeholder="Nombre" required>
             </div>
             <div class="form-group col-md-6">
               <label for="last_name">Apellido:</label>
-              <input type="text" class="form-control" id="last_name" name="last_name" placeholder="Apellido" required>
+              <input type="text" class="form-control" style="border: none; border-radius: 0px;" id="last_name" name="last_name" placeholder="Apellido" required>
             </div>
           </div>
           <div class="row">
             <div class="form-group col-md-6">
               <label for="age">Edad:</label>
-              <input type="number" class="form-control" id="age" name="age" placeholder="Edad" required>
+              <input type="number" class="form-control" style="border: none; border-radius: 0px;" id="age" name="age" placeholder="Edad" min="1" max="59" required>
             </div>
           </div>
           <div class="row">
             <div class="form-group col-md-6">
               <label for="gender">G&eacute;nero:</label>
-              <select class="form-control" id="gender" name="gender" required>
+              <select class="form-control" style="border: none; border-radius: 0px;" id="gender" name="gender" required>
                 <option value="Male">Hombre</option>
                 <option value="Female">Mujer</option>
               </select>
@@ -39,35 +64,35 @@
           <div class="row">
             <div class="form-group col-md-6">
               <label for="email">Email:</label>
-              <input type="email" class="form-control" id="email" name="email" placeholder="Email" required>
+              <input type="email" class="form-control" style="border: none; border-radius: 0px;" id="email" name="email" placeholder="Email" required>
             </div>
           </div>
           <div class="row">
             <div class="form-group col-md-6">
               <label for="phone">Celular:</label>
-              <input type="text" class="form-control" id="phone" name="phone" placeholder="Celular" required>
+              <input type="text" minlength="10" maxlength="10" class="form-control" style="border: none; border-radius: 0px;" id="phone" name="phone" placeholder="Celular" required>
             </div>
           </div>
           <div class="row">
             <div class="form-group col-md-12">
               <label for="plan">Realizaremos una cotizaci&oacute;n inicial y te contactaremos para aclarar dudas sobre los diferentes planes:</label>
               <div class="checkbox">
-                <label><input type="checkbox" name="plans[]" value="18">Emerm&eacute;dica</label>
+                <label><input type="checkbox" name="plans[]" value="18"><b>Emerm&eacute;dica</b></label>
               </div>
               <div class="checkbox">
-                <label><input type="checkbox" name="plans[]" value="17">Salud Ideal</label>
+                <label><input type="checkbox" name="plans[]" value="17"><b>Salud Ideal</b></label>
               </div>
               <div class="checkbox">
-                <label><input type="checkbox" name="plans[]" value="26">Plan Ambulatorio</label>
+                <label><input type="checkbox" name="plans[]" value="26"><b>Plan Ambulatorio</b></label>
               </div>
               <div class="checkbox">
-                <label><input type="checkbox" name="plans[]" value="13">Medicina Prepagada - Plan Alterno Plus</label>
+                <label><input type="checkbox" name="plans[]" value="13"><b>Medicina Prepagada - Plan Alterno Plus</b></label>
               </div>
               <div class="checkbox">
-                <label><input type="checkbox" name="plans[]" value="11">Medicina Prepagada - Plan Original Plus</label>
+                <label><input type="checkbox" name="plans[]" value="11"><b>Medicina Prepagada - Plan Original Plus</b></label>
               </div>
               <div class="checkbox">
-                <label><input type="checkbox" name="plans[]" value="15">Medicina Prepagada - Plan Fesalud Plus</label>
+                <label><input type="checkbox" name="plans[]" value="15"><b>Medicina Prepagada - Plan Fesalud Plus</b></label>
               </div>
             </div>
           </div>
