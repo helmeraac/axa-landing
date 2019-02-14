@@ -4,6 +4,12 @@
   <title>Cotizador</title>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"> 
   <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.0/jquery.validate.min.js"></script>
+  <style>
+    .error {
+      color: red;
+    }
+  </style>
 </head>
 <body>
     <nav class="navbar" style="background: white; border-color: white;">
@@ -75,7 +81,7 @@
           </div>
           <div class="row">
             <div class="form-group col-md-12">
-              <label for="plan">Realizaremos una cotizaci&oacute;n inicial y te contactaremos para aclarar dudas sobre los diferentes planes:</label>
+              <label>Realizaremos una cotizaci&oacute;n inicial y te contactaremos para aclarar dudas sobre los diferentes planes:</label>
               <div class="checkbox">
                 <label><input type="checkbox" name="plans[]" value="18"><b>Emerm&eacute;dica</b></label>
               </div>
@@ -96,7 +102,6 @@
               </div>
             </div>
           </div>
-
           <button type="submit" class="btn btn-success">Enviar</button>
         </form>
       </div>
@@ -107,23 +112,41 @@
   </div>
   <!-- Latest compiled and minified JavaScript -->
   <script>
-    $("#planForm").submit((e) => {
-      e.preventDefault();
-      $.post('https://cotizador.estoy-seguro.com', $('#planForm').serialize())
-      .done(() => {
-        Swal.fire({
-          type: 'success',
-          title: '',
-          text: 'Tus datos fueron enviados correctamente',
+    $.validator.messages.required = 'Este campo es obligatorio';
+    $("#planForm").validate({
+      lang: 'es',
+      rules: {
+        phone: {
+          required: true,
+          digits: true
+        }
+      },
+      messages: {
+        phone: {
+          minlength: "El teléfono debe ser de 10 números",
+          digits: "El teléfono debe contener sólo números"
+        },
+        email: {
+          email: "Por favor ingresa un correo electrónico valido",
+        }
+      },
+      submitHandler: function(form) {
+        $.post('https://cotizador.estoy-seguro.com', $('#planForm').serialize())
+        .done(() => {
+          Swal.fire({
+            type: 'success',
+            title: '',
+            text: 'Tus datos fueron enviados correctamente',
+          })
         })
-      })
-      .fail(() => {
-        Swal.fire({
-          type: 'error',
-          title: 'Oops...',
-          text: 'Ocurri&oacute; un error enviando tus datos, verifica los datos ingresados',
+        .fail(() => {
+          Swal.fire({
+            type: 'error',
+            title: 'Oops...',
+            text: 'Ocurri&oacute; un error enviando tus datos, verifica los datos ingresados',
+          })
         })
-      })
+      }
     });
   </script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
